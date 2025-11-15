@@ -1,0 +1,12 @@
+bin/
+bin/*
+obj/
+obj/*
+*.cache
+*.props
+*.targets
+*.tmp
+project.assets.json
+*.nuget.g.props
+*.nuget.g.targets
+*.editorconfig

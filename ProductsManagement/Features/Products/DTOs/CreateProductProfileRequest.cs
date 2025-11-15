@@ -1,8 +1,10 @@
 ﻿using System;
+using MediatR;
 
 namespace ProductsManagement.Features.Products.DTOs
 {
-    public class CreateProductProfileRequest
+    // Request-ul MediatR care va fi procesat de CreateProductHandler
+    public class CreateProductProfileRequest : IRequest<ProductProfileDto>
     {
         public string Name { get; set; } = string.Empty;
         public string Brand { get; set; } = string.Empty;
