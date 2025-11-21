@@ -1,10 +1,9 @@
-﻿namespace ProductsManagement.Features.Products
+namespace ProductsManagement.Features.Products;
+
+public enum ProductCategory
 {
-    public enum ProductCategory
-    {
-        Electronics = 0,
-        Clothing = 1,
-        Books = 2,
-        Home = 3
-    }
+    Electronics = 0,
+    Clothing = 1,
+    Books = 2,
+    Home = 3
 }

@@ -2,6 +2,9 @@ bin/
 bin/*
 obj/
 obj/*
+.idea/
+*.user
+*.db
 *.cache
 *.props
 *.targets

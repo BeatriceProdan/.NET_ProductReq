@@ -1,28 +1,49 @@
-﻿using System;
+namespace ProductsManagement.Features.Products;
 
-namespace ProductsManagement.Features.Products
+public class Product
 {
-    public class Product
+    public Guid Id { get; set; }
+
+    public string Name { get; set; } = string.Empty;
+
+    public string Brand { get; set; } = string.Empty;
+
+    public string SKU { get; set; } = string.Empty;
+
+    public ProductCategory Category { get; set; }
+
+    public decimal Price { get; set; }
+
+    public DateTime ReleaseDate { get; set; }
+
+    public DateTime CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
+    public string? ImageUrl { get; set; }
+
+    private int _stockQuantity = 0;
+
+    public int StockQuantity
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Brand { get; set; } = string.Empty;
-        public string SKU { get; set; } = string.Empty;
-        public ProductCategory Category { get; set; }
-        public decimal Price { get; set; }
-        public DateTime ReleaseDate { get; set; }
-        public string? ImageUrl { get; set; }
-        public bool IsAvailable { get; set; }
-        public int StockQuantity { get; set; }
-
-        public DateTime CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
-
-        public Product()
+        get => _stockQuantity;
+        set
         {
-            Id = Guid.NewGuid();
-            CreatedAt = DateTime.UtcNow;
-            IsAvailable = StockQuantity > 0;
+            _stockQuantity = value;
+            IsAvailable = _stockQuantity > 0;
         }
+    }
+    
+    public bool IsAvailable { get; private set; }
+    
+    public void UpdateAvailability()
+    {
+        IsAvailable = StockQuantity > 0;
+    }
+
+    
+    public Product()
+    {
+        StockQuantity = 0;
     }
 }
